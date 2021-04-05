@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lab5</string>
+    <string name="delete_memo">Delete Memo</string>
+    <string name="memo_to_delete">Memo # to Delete</string>
+    <string name="add_memo">Add Memo</string>
+    <string name="new_memo">New Memo</string>
 </resources>
