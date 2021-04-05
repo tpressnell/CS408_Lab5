@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         memoInput = (EditText) findViewById(R.id.memoInput);
         memoDelete = (EditText) findViewById(R.id.memoDelete);
 
+        DatabaseHandler db = new DatabaseHandler(this,null,null,1);
+        output.setText(db.getAllMemos());
+
 
     }
 
