@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
@@ -67,7 +69,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     }
 
-    public String getAllContacts() {
+    public String getAllMemos() {
 
         String query = "SELECT * FROM " + TABLE_MEMOS;
 
@@ -87,5 +89,21 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         db.close();
         return s.toString();
+    }
+
+    public void deleteMemo(int id) {
+
+        try {
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.delete(TABLE_MEMOS, COLUMN_ID + " = " + id, null);
+
+            db.close();
+        }
+        catch(Exception e){
+            System.out.println("DB ERROR");
+        }
+
+
     }
 }
