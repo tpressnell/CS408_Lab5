@@ -15,11 +15,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent, false);ViewHolderholder = new ViewHolder(view);return holder;
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent, false);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
     }
 
     @Override public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.setContact(data.get(position));
+        holder.setMemo(data.get(position));
         holder.bindData();
     }
     @Override
@@ -31,13 +33,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView addressLabel;
 
         public ViewHolder(View itemView) {
+
             super(itemView);
         }
-        public Contact getContact() {
-            return contact;
+        public String getmemo() {
+            return memo;
         }
-        public void setContact(Contact contact) {
-            this.contact= contact;
+        public void setMemo(String memo) {
+            this.memo = memo;
         }
         public void bindData() {
             if (nameLabel== null) {nameLabel= (TextView) itemView.findViewById(R.id.contactNameLabel);

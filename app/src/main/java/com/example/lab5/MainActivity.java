@@ -1,6 +1,7 @@
 package com.example.lab5;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView output;
+    private RecyclerView output;
     private Button btnAddMemo;
     private Button btnDelete;
     private EditText memoInput;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        output = (TextView) findViewById(R.id.output);
+        output = (RecyclerView) findViewById(R.id.output);
         btnAddMemo = (Button) findViewById(R.id.btnAddMemo);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         memoInput = (EditText) findViewById(R.id.memoInput);
