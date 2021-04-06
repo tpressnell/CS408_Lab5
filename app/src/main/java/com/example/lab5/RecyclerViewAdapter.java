@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private List<String> data;
+
     public RecyclerViewAdapter(List<String> data) {
         this.data= data;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent, false);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.memo_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -29,8 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         private String memo;
-        private TextView nameLabel;
-        private TextView addressLabel;
+        private TextView memoLabel;
 
         public ViewHolder(View itemView) {
 
@@ -39,14 +39,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public String getmemo() {
             return memo;
         }
+
         public void setMemo(String memo) {
             this.memo = memo;
         }
+
         public void bindData() {
-            if (nameLabel== null) {nameLabel= (TextView) itemView.findViewById(R.id.contactNameLabel);
+            if (memoLabel== null) {memoLabel= (TextView) itemView.findViewById(R.id.memoLabel);
             }
 
-            nameLabel.setText(contact.getName());
+            memoLabel.setText(memo);
         }
     }
 }

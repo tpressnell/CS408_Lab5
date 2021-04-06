@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHandler extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION = 1;
@@ -105,5 +108,25 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         }
 
 
+    }
+
+    public List<String> returnAllMemosAsList() {
+        String query = "SELECT * FROM " + TABLE_MEMOS;
+        List<String> allMemos= new ArrayList<>();
+        SQLiteDatabase db= this.getWritableDatabase();
+        Cursor cursor= db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            do {
+                int newId = cursor.getInt(0);
+                String newMemo = cursor.getString(1);
+                allMemos.add(newId + ": " + newMemo);}
+            while ( cursor.moveToNext() );
+        }
+
+        db.close();
+
+        return allMemos;
     }
 }
